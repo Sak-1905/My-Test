@@ -1,11 +1,16 @@
-// 'use client'
+'use client'
 import React from 'react';
-import { Disclosure } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 import BuildRoundedIcon from '@mui/icons-material/BuildRounded';
+import { PieChart } from '@mui/x-charts/PieChart';
 import RuleIcon from '@mui/icons-material/Rule';
+import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
+
+const data = [
+  { id: 0, value: 10, label: '' },
+  { id: 1, value: 15, label: '' },
+];
+
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -14,7 +19,7 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ];
 
-const Container = () => {
+const Containers = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Vertical Navbar */}
@@ -33,7 +38,7 @@ const Container = () => {
           </div>
         ))}
       </div>
-
+      
       {/* Content Container */}
       <div className="flex flex-wrap p-4 w-full">
         {/* First row */}
@@ -94,6 +99,19 @@ const Container = () => {
           <div className="bg-white rounded-lg p-8 m-2 flex-grow">
             {/* Content of the div 2 */}
             <h2 className="text-gray-800">Work Order Status</h2>
+            <PieChart
+      series={[
+        {
+          data: [
+            { id: 0, value: 10, label: 'series A' },
+            { id: 1, value: 15, label: 'series B' },
+            { id: 2, value: 20, label: 'series C' },
+          ],
+        },
+      ]}
+      width={400}
+      height={200}
+    />
             {/* Add more content as needed */}
           </div>
         </div>
@@ -102,14 +120,68 @@ const Container = () => {
         <div className="flex w-full">
           <div className="bg-white rounded-lg p-8 m-2 flex-grow">
             {/* Content of the div 3 */}
-            <RuleIcon className="text-yellow-500 mr-2" />
-            <h2 className="text-gray-800">Missing Items</h2>
+            
+            <h2 className="text-gray-800"><RuleIcon className="text-yellow-500 mr-2" />Missing Items</h2>
+            {/* Table */}
+          <table className="w-full">
+              <thead>
+                <tr className="border-b">
+                  <th className="py-2 text-left">Tool ref.</th>
+                  <th className="py-2 text-left">Team Member</th>
+                  <th className="py-2 text-left"></th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                {/* Row 1 */}
+                <tr className="border-b">
+                  <td className="py-2">6465</td>
+                  <td className="py-2">Alex Noman</td>
+                  <td className="py-2"><button>Detail</button></td>
+                </tr>
+
+                {/* Row 2 */}
+                <tr className="border-b">
+                  <td className="py-2">6466</td>
+                  <td className="py-2">Alex Noman</td>
+                  <td className="py-2"><button>Detail</button></td>
+                </tr>
+
+                {/* Row 3 */}
+                <tr className="border-b">
+                  <td className="py-2">6467</td>
+                  <td className="py-2">Alex Noman</td>
+                  <td className="py-2"><button>Detail</button></td>
+                </tr>
+              </tbody>
+            </table>
+            {/* Add more content as needed */}
             {/* Add more content as needed */}
           </div>
           
           <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-1/3">
             {/* Content of the div 4 */}
             <h2 className="text-gray-800">Tools and Equipments Availability</h2>
+            <div><BuildRoundedIcon className="text-black-500 mr-2" />Rental Items<PieChart
+      series={[
+        {
+          data,
+          highlightScope: { faded: 'global', highlighted: 'item' },
+          faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+        },
+      ]}
+      height={65}
+    /></div>
+            <div><HandymanOutlinedIcon className="text-black-500 mr-2" />Spare Parts<PieChart
+      series={[
+        {
+          data,
+          highlightScope: { faded: 'global', highlighted: 'item' },
+          faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+        },
+      ]}
+      height={65}
+    /></div>
             {/* Add more content as needed */}
           </div>
         </div>
@@ -167,13 +239,16 @@ const Container = () => {
           </div>
         </div>
       </div>
+      
+      
   );
 };
 
 export default function Home() {
   return (
     <div>
-      <Container />
+      <Containers/>
+     
     </div>
   );
 }
