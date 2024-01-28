@@ -115,12 +115,51 @@ const Container = () => {
         </div>
 
         {/* Third row */}
-        <div className="flex w-full">
+        <div className="flex width=90%">
           <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-1/3">
             {/* Content of the div 5 */}
             <h2 className="text-gray-800">Restock Items</h2>
+            {/* Table */}
+            <table className="w-full">
+              <thead>
+                <tr className="border-b">
+                  <th className="py-2 text-left">Tool ref.</th>
+                  <th className="py-2 text-left">Tool/Equipment</th>
+                  <th className="py-2 text-left">Stock Status</th>
+                  <th className="py-2 text-left"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Row 1 */}
+                <tr className="border-b">
+                  <td className="py-2">6465</td>
+                  <td className="py-2">Screws</td>
+                  <td className="py-2">Low</td>
+                  <td className="py-2"><button>Detail</button></td>
+                </tr>
+
+                {/* Row 2 */}
+                <tr className="border-b">
+                  <td className="py-2">6466</td>
+                  <td className="py-2">Wires (electrical)</td>
+                  <td className="py-2">None</td>
+                  <td className="py-2"><button>Detail</button></td>
+                </tr>
+
+                {/* Row 3 */}
+                <tr className="border-b">
+                  <td className="py-2">6467</td>
+                  <td className="py-2">Bolts</td>
+                  <td className="py-2">None</td>
+                  <td className="py-2"><button>Detail</button></td>
+                </tr>
+              </tbody>
+            </table>
             {/* Add more content as needed */}
           </div>
+            {/* Add more content as needed */}
+          </div>
+          
           <div className="bg-white rounded-lg p-8 m-2 flex-grow">
             {/* Content of the div 6 */}
             <h2 className="text-gray-800">Reception Summary</h2>
@@ -128,7 +167,6 @@ const Container = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
