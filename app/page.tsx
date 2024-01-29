@@ -6,10 +6,11 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import RuleIcon from '@mui/icons-material/Rule';
 import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
 import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
+import HistoryToggleOffSharpIcon from '@mui/icons-material/HistoryToggleOffSharp';
 
 const data = [
-  { id: 0, value: 10, label: '' },
-  { id: 1, value: 15, label: '' },
+  { id: 2, value: 100, label: 'Completed' },
+  { id: 0, value: 50, label: 'Not Completed' },
 ];
 
 
@@ -257,11 +258,11 @@ const Containers = () => {
 </div>
 <div className="flex justify-between items-center">
     <div className="flex items-center">
-        <CheckCircleSharpIcon className="text-black-1000 mr-2" />
-        <span className="text-black-500">Package Received</span>
+        <HistoryToggleOffSharpIcon className="text-black-1000 mr-2" />
+        <span className="text-black-500">Processed Packages</span>
     </div>
 
-    <span className="text-black-500">10</span>
+    <span className="text-black-500">5</span>
 </div>
 
             {/* Add more content as needed */}
