@@ -5,6 +5,7 @@ import BuildRoundedIcon from '@mui/icons-material/BuildRounded';
 import { PieChart } from '@mui/x-charts/PieChart';
 import RuleIcon from '@mui/icons-material/Rule';
 import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
+import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
 
 const data = [
   { id: 0, value: 10, label: '' },
@@ -13,7 +14,7 @@ const data = [
 
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
+  { name: 'Logo', href: '#', current: true },
   { name: 'Team', href: '#', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
@@ -21,7 +22,7 @@ const navigation = [
 
 const Containers = () => {
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-full bg-gray-100">
       {/* Vertical Navbar */}
       <div className="bg-gray-800 text-white p-4">
         {navigation.map((item) => (
@@ -43,14 +44,14 @@ const Containers = () => {
       <div className="flex flex-wrap p-4 w-full">
         {/* First row */}
         <div className="flex w-full">
-          <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-1/3">
+          <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-3/5">
             {/* Content of the div 1 with an icon */}
             <div className="flex items-center mb-4">
               <BuildRoundedIcon className="text-black-500 mr-2" />
               <h2 className="text-gray-800">Rental Tool</h2>
             </div>
             {/* Table */}
-            <table className="">
+            <table className="w-full">
               <thead>
                 <tr className="border-b">
                   <th className="py-2 text-left">Work Order</th>
@@ -103,13 +104,13 @@ const Containers = () => {
       series={[
         {
           data: [
-            { id: 0, value: 10, label: 'series A' },
-            { id: 1, value: 15, label: 'series B' },
-            { id: 2, value: 20, label: 'series C' },
+            { id: 0, value: 25, label: 'Completed' },
+            { id: 1, value: 5, label: 'Due' },
+            { id: 2, value: 15, label: 'Work In Progress' },
           ],
         },
       ]}
-      width={400}
+      width={300}
       height={200}
     />
             {/* Add more content as needed */}
@@ -159,38 +160,49 @@ const Containers = () => {
             {/* Add more content as needed */}
           </div>
           
-          <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-1/3">
+          <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-3/5">
             {/* Content of the div 4 */}
             <h2 className="text-gray-800">Tools and Equipments Availability</h2>
-            <div><BuildRoundedIcon className="text-black-500 mr-2" />Rental Items<PieChart
-      series={[
-        {
-          data,
-          highlightScope: { faded: 'global', highlighted: 'item' },
-          faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-        },
-      ]}
-      height={65}
-    /></div>
-            <div><HandymanOutlinedIcon className="text-black-500 mr-2" />Spare Parts<PieChart
-      series={[
-        {
-          data,
-          highlightScope: { faded: 'global', highlighted: 'item' },
-          faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-        },
-      ]}
-      height={65}
-    /></div>
+            <div className="flex items-center justify-center">
+    <BuildRoundedIcon className="text-black-500 mr-2" />
+    <span className="text-black-500">Rental Items</span>
+    <PieChart
+        series={[
+            {
+                data,
+                highlightScope: { faded: 'global', highlighted: 'item' },
+                faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+            },
+        ]}
+        height={75}
+    />
+</div>
+
+<div className="flex items-center justify-center">
+    <HandymanOutlinedIcon className="text-black-500 mr-2" />
+    <span className="text-black-500">Spare Parts</span>
+    <PieChart
+        series={[
+            {
+                data,
+                highlightScope: { faded: 'global', highlighted: 'item' },
+                faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+            },
+        ]}
+        height={75}
+    />
+</div>
+
             {/* Add more content as needed */}
           </div>
         </div>
 
         {/* Third row */}
-        <div className="flex width=90%">
-          <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-1/3">
+        <div className="bg-white rounded-lg p-8 m-2 flex-grow lg:w-3/5">
+        <h2 className="text-black-800">Restock Items</h2>
+        <div className="flex w-full">
             {/* Content of the div 5 */}
-            <h2 className="text-gray-800">Restock Items</h2>
+            
             {/* Table */}
             <table className="w-full">
               <thead>
@@ -235,6 +247,23 @@ const Containers = () => {
           <div className="bg-white rounded-lg p-8 m-2 flex-grow">
             {/* Content of the div 6 */}
             <h2 className="text-gray-800">Reception Summary</h2>
+            <div className="flex justify-between items-center">
+    <div className="flex items-center">
+        <CheckCircleSharpIcon className="text-black-1000 mr-2" />
+        <span className="text-black-500">Package Received</span>
+    </div>
+
+    <span className="text-black-500">10</span>
+</div>
+<div className="flex justify-between items-center">
+    <div className="flex items-center">
+        <CheckCircleSharpIcon className="text-black-1000 mr-2" />
+        <span className="text-black-500">Package Received</span>
+    </div>
+
+    <span className="text-black-500">10</span>
+</div>
+
             {/* Add more content as needed */}
           </div>
         </div>
